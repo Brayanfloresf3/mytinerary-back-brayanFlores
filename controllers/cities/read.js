@@ -2,6 +2,7 @@ import City from '../../models/City.js'
 
 let getAllCities = async (req, res) => {
     try {
+        
         let allCities = await City.find();
         return res.status(200).json({
             response: allCities

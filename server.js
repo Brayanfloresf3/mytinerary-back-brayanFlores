@@ -6,6 +6,7 @@ import morgan from 'morgan';
 import router from './router/cities.js';
 
 const server = express();
+
  
 // Middlewares (en este orden)
 server.use(cors())
@@ -25,6 +26,10 @@ const PORT = process.env.PORT || 8080;
 
 server.listen(PORT, () => {  
   console.log(`Server running on port ${PORT}`);
-}).on('error', (err) => {
-  console.error(`Server error: ${err}`);
-}); 
+}).on('error', (error) => {
+  console.log(`Error en el servidor: ${error}`);
+});
+
+
+
+// https://8080-idx-mytinerary-back-1729375617267.cluster-wfwbjypkvnfkaqiqzlu3ikwjhe.cloudworkstations.dev/api/cities

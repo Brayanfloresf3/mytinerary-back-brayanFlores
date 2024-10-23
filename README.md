@@ -1,6 +1,38 @@
+
+# Mytinerary
+
 # Node + Express Service Starter
 
-This is a simple API sample in Node.js with express.js based on [Google Cloud Run Quickstart](https://cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-nodejs-service).
+## 🚀 Introducción
+
+**Mytinerary** es una aplicación de viajes y turismo que permite a los usuarios descubrir ciudades icónicas, planificar itinerarios y obtener información detallada sobre cada destino. Explora, planifica y disfruta de tus viajes con facilidad.
+
+## 📸 Características
+
+- **Búsqueda de Ciudades:** Encuentra ciudades rápidamente con un filtro de búsqueda intuitivo.
+- **Tarjetas de Ciudad:** Visualiza información básica de cada ciudad en tarjetas atractivas.
+- **Detalles de Ciudad:** Accede a información detallada sobre cada ciudad, incluyendo clima, transporte y atracciones.
+- **Favoritos:** Guarda tus ciudades favoritas y accede a ellas fácilmente.
+
+## 🌐 Tecnologías Utilizadas
+
+- **Frontend:** 
+  - React
+  - Vite
+  - Tailwind CSS
+- **Backend:** 
+  - Express
+  - MongoDB
+- **API:** Utiliza la API de ciudades para obtener datos en tiempo real.
+
+## 🛠️ Instalación
+
+Sigue estos pasos para instalar y ejecutar el proyecto en tu entorno local:
+
+1. **Clona el repositorio:**
+
+   ```bash
+   git clone https://github.com/tu-usuario/mytinerary.git
 
 ## Getting Started
 

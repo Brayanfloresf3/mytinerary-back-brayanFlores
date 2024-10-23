@@ -40,8 +40,8 @@ Sigue estos pasos para instalar y ejecutar el proyecto en tu entorno local:
 1. **Clona el repositorio:**
 
    ```bash
-   git clone [https://github.com/tu-usuario/mytinerary.git
-](https://github.com/Brayanfloresf3/mytinerary-back-brayanFlores.git)
+   git clone [https://github.com/Brayanfloresf3/mytinerary-back-brayanFlores.git]
+
 ## Getting Started
 
 Server should run automatically when starting a workspace. To run manually, run:

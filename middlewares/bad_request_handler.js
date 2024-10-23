@@ -21,3 +21,26 @@ const bad_request_handler = (requiredFields) => (req, res, next) => {
 };
 
 export default bad_request_handler;
+
+// // middlewares/bad_request_handler.js
+
+// const badRequestHandler = (req, res, next) => {
+    
+//     const { body } = req;
+
+//     // Ejemplo básico de validación
+//     if (!body || Object.keys(body).length === 0) {
+//         return res.status(400).json({
+//             success: false,
+//             message: 'Bad Request: Missing or invalid request body'
+//         });
+//     }
+
+//     // Puedes agregar más validaciones aquí según tu necesidad
+//     // if (!body.name || typeof body.name !== 'string') { ... }
+
+//     next();  // Si pasa la validación, continúa al siguiente middleware o controlador
+// };
+
+// export default badRequestHandler;
+

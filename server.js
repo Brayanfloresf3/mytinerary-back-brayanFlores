@@ -4,23 +4,23 @@ import "./config/dataBase.js";
 import cors from 'cors';
 import morgan from 'morgan';
 import router from './router/cities.js';
+import notFoundHandler from './middlewares/not_found_handler.js';
+import errorHandler from './middlewares/error_handler.js';
 
 const server = express();
-
  
-// Middlewares (en este orden)
-server.use(cors())
+// Middlewares
+server.use(cors());
 server.use(morgan('dev'));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
-// Endpoint de prueba
-server.get('/test', (req, res) => {
-  res.json({ message: 'Servidor funcionando correctamente' });
-});
-
 // Routers
 server.use('/api/cities', router);
+
+//My Middlewares
+server.use(notFoundHandler);
+server.use(errorHandler);
 
 const PORT = process.env.PORT || 8080;
 
@@ -29,7 +29,3 @@ server.listen(PORT, () => {
 }).on('error', (error) => {
   console.log(`Error en el servidor: ${error}`);
 });
-
-
-
-// https://8080-idx-mytinerary-back-1729375617267.cluster-wfwbjypkvnfkaqiqzlu3ikwjhe.cloudworkstations.dev/api/cities

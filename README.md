@@ -12,7 +12,6 @@
 - **Búsqueda de Ciudades:** Encuentra ciudades rápidamente con un filtro de búsqueda intuitivo.
 - **Tarjetas de Ciudad:** Visualiza información básica de cada ciudad en tarjetas atractivas.
 - **Detalles de Ciudad:** Accede a información detallada sobre cada ciudad, incluyendo clima, transporte y atracciones.
-- **Favoritos:** Guarda tus ciudades favoritas y accede a ellas fácilmente.
 
 ## 🌐 Tecnologías Utilizadas
 
@@ -24,6 +23,15 @@
   - Express
   - MongoDB
 - **API:** Utiliza la API de ciudades para obtener datos en tiempo real.
+
+- **Dependencias:** 
+  - `cors`: Middleware para habilitar CORS en tu servidor.
+  - `morgan`: Middleware para registrar las solicitudes HTTP.
+  - `mongoose`: ODM para MongoDB.
+  - `dotenv`: Carga variables de entorno desde un archivo `.env`.
+  - `express`: Framework para crear el servidor.
+
+- npm install cors morgan mongoose dotenv express
 
 ## 🛠️ Instalación
 

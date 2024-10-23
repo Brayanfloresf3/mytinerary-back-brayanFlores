@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 let url = process.env.URI_MONGO
 
-console.log(process.env);
+console.log(url);
 
 async function connectDatabase(url) {
     try {

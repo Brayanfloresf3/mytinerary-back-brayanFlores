@@ -6,7 +6,7 @@ let citySchema = new Schema({
     name: {
         type: String,
         required: true,
-        unique: true // Evita ciudades duplicadas
+        unique: true
     },
     photo: {
         type: String,

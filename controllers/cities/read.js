@@ -33,4 +33,4 @@ let getCityById = async (req, res) => {
   }
 };
 
-export { getAllCities, getCityById };
+export { getAllCities, getCityById }; 

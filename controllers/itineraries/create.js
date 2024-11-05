@@ -1,4 +1,4 @@
-import Itinerary from "../../models/Itinerary.js"; // Asegúrate de que la ruta sea correcta
+import Itinerary from "../../models/Itinerary.js"; 
 
 // Crear un nuevo itinerario
 const createItinerary = async (req, res) => {

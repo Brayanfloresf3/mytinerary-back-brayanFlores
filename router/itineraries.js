@@ -13,10 +13,9 @@ const router = Router();
 
 const requiredFields = ["author", "price", "duration", "hashtags"];
 
-// Rutas
 router.get("/", getAllItineraries);
 router.get("/:id", getItineraryById);
-router.get("/city/:cityId", getItinerariesByCityId); // Consultar itinerarios por ID de ciudad
+router.get("/city/:cityId", getItinerariesByCityId);
 router.post("/create", badRequestHandler(requiredFields), createItinerary);
 router.put("/update/:id", updateItinerary);
 router.delete("/delete/:id", deleteItinerary);

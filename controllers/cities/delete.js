@@ -1,6 +1,6 @@
 import City from "../../models/City.js";
 
-let deleteCity = async (req, res) => {
+let deleteCity = async (req, res, next) => {
   try {
     const { id } = req.params;
     const deletedCity = await City.findByIdAndDelete(id);
@@ -14,9 +14,7 @@ let deleteCity = async (req, res) => {
       response: deletedCity,
     });
   } catch (error) {
-    return res.status(500).json({
-      message: error.message,
-    });
+    next(error);
   }
 };
 

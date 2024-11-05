@@ -1,39 +1,35 @@
-import Itinerary from "../../models/Itinerary.js"; // Asegúrate de que la ruta sea correcta
+import Itinerary from "../../models/Itinerary.js";
 import "../../models/City.js";
 
 // Obtener todos los itinerarios
-const getAllItineraries = async (req, res) => {
+let getAllItineraries = async (req, res, next) => {
   try {
-    const itineraries = await Itinerary.find().populate("city"); // Puedes incluir 'city' si necesitas la información de la ciudad
+    let itineraries = await Itinerary.find().populate("city");
     return res.status(200).json({
       response: itineraries,
     });
   } catch (error) {
-    return res.status(500).json({
-      response: error.message,
-    });
+    next(Error);
   }
 };
 
 // Obtener itinerarios de una ciudad específica
-const getItinerariesByCityId = async (req, res) => {
+let getItinerariesByCityId = async (req, res, next) => {
   try {
-    const { cityId } = req.params; // Suponiendo que el ID de la ciudad se pasa como un parámetro
-    const itineraries = await Itinerary.find({ city: cityId }); // Buscamos itinerarios que correspondan a la ciudad
+    let { cityId } = req.params;
+    let itineraries = await Itinerary.find({ city: cityId });
     return res.status(200).json({
       response: itineraries,
     });
   } catch (error) {
-    return res.status(500).json({
-      response: error.message,
-    });
+    next(Error);
   }
 };
 
 // Obtener un itinerario por su ID
-const getItineraryById = async (req, res) => {
+let getItineraryById = async (req, res, next) => {
   try {
-    const itinerary = await Itinerary.findById(req.params.id).populate("city");
+    let itinerary = await Itinerary.findById(req.params.id).populate("city");
     if (!itinerary) {
       return res.status(404).json({ message: "Itinerary not found" });
     }
@@ -41,7 +37,7 @@ const getItineraryById = async (req, res) => {
       response: itinerary,
     });
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(Error);
   }
 };
 

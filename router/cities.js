@@ -16,7 +16,6 @@ const requiredFields = [
   "languages",
 ];
 
-// Rutas
 router.get("/", getAllCities);
 router.get("/:id", getCityById);
 router.post("/create", badRequestHandler(requiredFields), createCity);

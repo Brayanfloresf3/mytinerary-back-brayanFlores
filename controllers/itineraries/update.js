@@ -1,14 +1,13 @@
-import Itinerary from "../../models/Itinerary.js"; // Asegúrate de que la ruta sea correcta
+import Itinerary from "../../models/Itinerary.js";
 
-// Modificar un itinerario
-const updateItinerary = async (req, res) => {
+let updateItinerary = async (req, res, next) => {
   try {
-    const updatedItinerary = await Itinerary.findByIdAndUpdate(
+    let updatedItinerary = await Itinerary.findByIdAndUpdate(
       req.params.id,
       req.body,
       {
-        new: true, // Retorna el nuevo objeto
-        runValidators: true, // Ejecuta las validaciones
+        new: true,
+        runValidators: true,
       }
     );
     if (!updatedItinerary) {
@@ -19,7 +18,7 @@ const updateItinerary = async (req, res) => {
       response: updatedItinerary,
     });
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 

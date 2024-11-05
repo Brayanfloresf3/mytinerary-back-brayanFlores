@@ -5,6 +5,7 @@ let getAllCities = async (req, res) => {
     let { name } = req.query;
     let nameQuery = {};
 
+    //filter city
     if (name) {
       nameQuery.name = { $regex: "^" + name, $options: "i" };
     }

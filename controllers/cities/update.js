@@ -1,11 +1,11 @@
 import City from "../../models/City.js";
 
-let updateCity = async (req, res) => {
+let updateCity = async (req, res, next) => {
   try {
     const { id } = req.params;
     const updatedCity = await City.findByIdAndUpdate(id, req.body, {
-      new: true, // Devuelve el documento actualizado
-      runValidators: true // Valida los campos según el esquema
+      new: true,
+      runValidators: true 
     });
 
     if (!updatedCity) {
@@ -17,9 +17,7 @@ let updateCity = async (req, res) => {
       response: updatedCity,
     });
   } catch (error) {
-    return res.status(500).json({
-      message: error.message,
-    });
+    next(error)
   }
 };
 

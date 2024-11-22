@@ -11,7 +11,7 @@ import passport from "../middlewares/passport.js";
 
 const router = Router();
 
-router.get("/all", passport.authenticate('jwt',{session:false}), getAllUsers);
+router.get("/all", getAllUsers);
 router.get("/:id", getUserById);
 router.post(
   "/register",

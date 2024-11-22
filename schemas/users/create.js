@@ -13,6 +13,18 @@ const schemaUsersCreated = joi.object({
       "string.pattern.base": "Name cannot contain only spaces",
       "any.required": "Name is required",
     }),
+    lastname: joi
+    .string()
+    .trim()
+    .pattern(/^[^\s]+(\s[^\s]+)*$/)
+    .alphanum()
+    .required()
+    .messages({
+      "string.alphanum": "Last name can only contain letters and numbers",
+      "string.empty": "Last name is required",
+      "string.pattern.base": "Last name cannot contain only spaces",
+      "any.required": "Last name is required",
+    }),
   email: joi
     .string()
     .email()

@@ -15,12 +15,16 @@ export default passport.use(
                 //Buscar si el usuario esta en la Base Datos
                 let user = await User.findOne({ email: profile.emails[0].value })
                 if (!user) { 
+                    let hashPassword = bcryptjs.hashSync(
+                        profile.id,
+                        10
+                    )
                     //si no exite creo uno nuevo 
                     user = new User({
                         name: profile.name.givenName,
                         lastname: profile.name.familyName,
                         email: profile.emails[0].value,
-                        password: profile.id,
+                        password: hashPassword,
                         photoUrl: profile.photos[0].value,
                         country: "Unknown",
                         isOnline: false

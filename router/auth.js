@@ -22,10 +22,11 @@ router.get(
    passportGoogle.authenticate('google', { session: false, scope: ['profile', 'email'] })
 )
 router.get(
-    '/signIn/google/callback',
+    '/signin/google/callback',
     passportGoogle.authenticate('google', { session: false, failureRedirect: '/login' }),
     generateToken,
     signInGoogle
 )
+
 
 export default router;

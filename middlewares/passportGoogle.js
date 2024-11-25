@@ -10,9 +10,7 @@ export default passport.use(
             callbackURL: process.env.GOOGLE_URI_BACK,
         },
         async (accessToken, refreshToken, profile, done) => {
-            console.log(profile);
             try {
-                //Buscar si el usuario esta en la Base Datos
                 let user = await User.findOne({ email: profile.emails[0].value })
                 if (!user) { 
                     let hashPassword = bcryptjs.hashSync(

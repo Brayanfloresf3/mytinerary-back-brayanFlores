@@ -1,9 +1,7 @@
 const validateToken = (req, res) => {
   try {
-    // Obtener los datos directamente de req.user
     const { name, photoUrl, email } = req.user;
 
-    // Responder con la información del usuario
     res.json({
       message: 'Token es válido',
       user: {

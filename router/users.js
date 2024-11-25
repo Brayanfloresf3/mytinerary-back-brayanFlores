@@ -7,8 +7,7 @@ import validator from "../middlewares/validator.js";
 import schemaUsersCreated from "../schemas/users/create.js";
 import accountExists from "../middlewares/accountExists.js";
 import createHash from "../middlewares/createHash.js";
-import passport from "../middlewares/passport.js";
-
+  
 const router = Router();
 
 router.get("/all", getAllUsers);

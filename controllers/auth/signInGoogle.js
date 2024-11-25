@@ -2,39 +2,23 @@ import User from "../../models/User.js";
 
 export default async (req, res, next) => {
   try {
-    // Verifica que req.user exista
-    if (!req.user) {
-      return res.status(400).json({
-        success: false,
-        message: "No user information found. Please try again.",
-      });
-    }
+    // Actualiza el estado en la base de datos
+    const user = await User.findOneAndUpdate(
+      { email: req.user.email },
+      { online: true },
+      { new: true } 
+    );
 
-    // Actualiza el estado en línea del usuario
-    await User.findOneAndUpdate({ email: req.user.email }, { isOnline: true });
-
-    // Obtén los datos del usuario
-    const user = await User.findOne({ email: req.user.email });
-
-    // Si el usuario no existe por algún motivo, devuelve un error
+    // Verifica que el usuario exista
     if (!user) {
-      return res.status(404).json({
-        success: false,
-        message: "User not found in database.",
-      });
+      return res.status(404).json({ message: "User not found" });
     }
 
-    return res.status(200).json({
-      success: true,
-      message: "Signed In",
-      user: {
-        email: user.email,
-        name: user.name,
-        photo: user.photo,
-        photoUrl: user.photoUrl || "/default-avatar.jpg",
-      },
-      token: req.token,
-    });
+    const { email, name, photoUrl } = user;
+
+    const redirectUrl = `https://5173-idx-mytinerarybrayanfloresgit-1732483231714.cluster-ux5mmlia3zhhask7riihruxydo.cloudworkstations.dev/?token=${req.token}&email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}&photoUrl=${encodeURIComponent(photoUrl)}`;
+
+    return res.redirect(redirectUrl);
   } catch (error) {
     next(error);
   }

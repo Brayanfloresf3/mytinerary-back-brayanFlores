@@ -7,7 +7,8 @@ import validator from "../middlewares/validator.js";
 import schemaUsersCreated from "../schemas/users/create.js";
 import accountExists from "../middlewares/accountExists.js";
 import createHash from "../middlewares/createHash.js";
-  
+import passport from "../middlewares/passport.js";
+
 const router = Router();
 
 router.get("/all", getAllUsers);
@@ -19,7 +20,7 @@ router.post(
   createHash,
   register
 );
-router.put("/update/:id", updateUser);
-router.delete("/delete/:id", deleteUser);
+router.put("/update/:id",  passport.authenticate('jwt',{session:false}),updateUser);
+router.delete("/delete/:id", passport.authenticate('jwt',{session:false}), deleteUser);
  
 export default router;

@@ -16,7 +16,7 @@ export default async (req, res, next) => {
 
     const { email, name, photoUrl } = user;
 
-    const redirectUrl = `https://5173-idx-mytinerarybrayanfloresgit-1732483231714.cluster-ux5mmlia3zhhask7riihruxydo.cloudworkstations.dev/?token=${req.token}&email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}&photoUrl=${encodeURIComponent(photoUrl)}`;
+    const redirectUrl = `http://localhost:3000/token=${req.token}&email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}&photoUrl=${encodeURIComponent(photoUrl)}`;
 
     return res.redirect(redirectUrl);
   } catch (error) {

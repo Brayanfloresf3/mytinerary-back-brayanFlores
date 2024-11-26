@@ -19,6 +19,7 @@ export default async (req, res, next) => {
       token: req.token
     });
   } catch (error) {
+    console.log(error);
     next(error);
   }
 };

@@ -7,8 +7,7 @@ export default async (req, res, next) => {
       req.user = {
         email: account.email,
         password: account.password,
-        role: account.role,
-        photo: account.photo,
+        photo: account.photoUrl,
       };
       return next();
     }

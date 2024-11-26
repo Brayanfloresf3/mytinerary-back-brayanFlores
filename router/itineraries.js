@@ -10,7 +10,7 @@ import deleteItinerary from "../controllers/itineraries/delete.js";
 import badRequestHandler from "../middlewares/bad_request_handler.js";
 import validator from "../middlewares/validator.js"
 import schemaItineraryCreated from "../schemas/itineraries/create.js";
-
+import passport from "../middlewares/passport.js";
 
 
 const router = Router();
@@ -21,7 +21,7 @@ router.get("/", getAllItineraries);
 router.get("/:id", getItineraryById);
 router.get("/city/:cityId", getItinerariesByCityId);
 router.post("/create", validator(schemaItineraryCreated), badRequestHandler(requiredFields), createItinerary);
-router.put("/update/:id", updateItinerary);
-router.delete("/delete/:id", deleteItinerary);
+router.put("/update/:id",  passport.authenticate('jwt',{session:false}), updateItinerary);
+router.delete("/delete/:id", passport.authenticate('jwt',{session:false}), deleteItinerary);
 
 export default router;

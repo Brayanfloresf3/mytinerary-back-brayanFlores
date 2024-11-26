@@ -1,6 +1,5 @@
 const bad_request_handler = (requiredFields) => (req, res, next) => {
-    // Verifica si el cuerpo de la solicitud es un array; si no, 
-    //lo convierte en un array con un solo elemento
+  
     const data = Array.isArray(req.body) ? req.body : [req.body]; 
     for (const item of data) {
         // Recorre cada campo requerido

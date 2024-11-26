@@ -21,7 +21,7 @@ server.use("/api", indexRouter);
 //My Middlewares
 server.use(notFoundHandler);
 server.use(errorHandler);
-
+   
 const PORT = process.env.PORT || 8080;
   
 server 
@@ -30,5 +30,4 @@ server
   })
   .on("error", (error) => {
     console.log(`Error en el servidor: ${error}`);
-  });
-  
+  });       

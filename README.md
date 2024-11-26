@@ -39,12 +39,12 @@ Sigue estos pasos para instalar y ejecutar el proyecto en tu entorno local:
 
 1. **Clona el repositorio:**
 
-   ```bash
-   git clone https://github.com/Brayanfloresf3/mytinerary-back-brayanFlores.git
+```bash
+git clone https://github.com/Brayanfloresf3/mytinerary-back-brayanFlores.git
 
 ## Getting Started
 
 Server should run automatically when starting a workspace. To run manually, run:
-```sh
+```bash
 npm run dev
-```
+

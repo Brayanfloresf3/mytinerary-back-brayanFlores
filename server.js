@@ -23,7 +23,7 @@ server.use(notFoundHandler);
 server.use(errorHandler);
 
 const PORT = process.env.PORT || 8080;
-
+  
 server 
   .listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
@@ -31,3 +31,4 @@ server
   .on("error", (error) => {
     console.log(`Error en el servidor: ${error}`);
   });
+  
